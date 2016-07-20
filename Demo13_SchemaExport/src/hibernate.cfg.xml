@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- 数据库连接设置 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">tiger</property>
+
+        <!-- JDBC连接池 (use the built-in) -->
+        <!-- <property name="connection.pool_size">1</property> -->
+
+        <!-- SQL方言 -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- 关闭二级缓存  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- 打印SQL语句到控制台 -->
+        <property name="show_sql">true</property>
+        
+        <!-- 对控制台输出的SQL语句进行排版，便于阅读 -->
+        <property name="format_sql">true</property>
+        
+        <!-- 默认数据库（创建表时会自动添加数据库前缀，如：hibernate.STUDENT） -->
+        <property name="hibernate.default_schema">hibernate</property>
+
+		<!-- 管理对象关系映射文件（使用.hbm.xml文件时） -->
+        <mapping resource="com/ekunt/model/Student.hbm.xml"/>
+        
+    </session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-3 18:54:50 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ekunt.entity.Grade" table="GRADE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" not-null="true" length="25"/>
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        
+        <!-- **配置多对多关联关系**  -->
+        <set name="students" table="GRADE_STD">
+            <key>
+                <column name="GRADE_ID" />
+            </key>
+            <many-to-many class="com.ekunt.entity.Student" column="STUDENT_ID"/>
+        </set>
+    </class>
+</hibernate-mapping>

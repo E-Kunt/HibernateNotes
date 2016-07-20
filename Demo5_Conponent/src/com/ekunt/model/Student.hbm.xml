@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-2 23:09:09 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ekunt.model.Student" table="STUDENT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="birthday" type="java.util.Date">
+            <column name="BIRTHDAY" />
+        </property>
+        <!-- **使用组合属性（如自定义类的属性）时，应使用component标签** -->
+        <component name="address" class="com.ekunt.model.Address">
+			<property name="postCode" column="POSTCODE"></property>
+			<property name="location" column="LOCATION"></property>
+			<property name="phone" column="PHONE"></property>
+        </component>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-2 0:17:21 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ekunt.model.Student" table="STUDENT">
+    	<!--** 联合主键的配置 **-->
+        <composite-id name="pk" class="com.ekunt.model.StudentKey">
+        	<key-property name="id">
+        		<column name="ID"/>
+        	</key-property>
+        	<key-property name="name">
+        		<column name="NAME"/>
+        	</key-property>
+        </composite-id>
+        <property name="birthday" type="java.util.Date">
+            <column name="BIRTHDAY" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+    </class>
+</hibernate-mapping>

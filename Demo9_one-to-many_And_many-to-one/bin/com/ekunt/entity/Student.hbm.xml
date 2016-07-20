@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-3 18:54:50 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.ekunt.entity.Student" table="STUDENT">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" not-null="true" length="25"/>
+		</property>
+		<property name="age" type="int">
+			<column name="AGE" />
+		</property>
+		<many-to-one name="grade" class="com.ekunt.entity.Grade" cascade="all">
+			<!-- 注意名字和一方的key的名字要一致，否则生成两个外键 -->
+			<column name="GRADEID"/>		
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-5 16:29:28 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ekunt.entity.Dept" table="DEPT">
+        <id name="deptno" type="int">
+            <column name="DEPTNO" />
+            <generator class="increment" />
+        </id>
+        <property name="dname" type="java.lang.String">
+            <column name="DNAME" />
+        </property>
+        <property name="loc" type="java.lang.String">
+            <column name="LOC" />
+        </property>
+        <set name="emps" table="EMP" inverse="true" lazy="true">
+            <key>
+                <column name="DEPTNO" />
+            </key>
+            <one-to-many class="com.ekunt.entity.Emp" />
+        </set>
+    </class>
+</hibernate-mapping>
